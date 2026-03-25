@@ -1,0 +1,23 @@
+meta {
+  name: Get All Users
+  type: http
+  seq: 14
+}
+
+http {
+  method: GET
+  url: {{baseUrl}}/api/admin/users
+  headers {
+    Authorization: Bearer {{adminToken}}
+  }
+}
+
+tests {
+  const users = response.body;
+  if (Array.isArray(users)) {
+    console.log(`Total users: ${users.length}`);
+    users.forEach(user => {
+      console.log(`- ${user.username} (${user.role})`);
+    });
+  }
+}

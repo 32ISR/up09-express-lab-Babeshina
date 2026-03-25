@@ -1,0 +1,17 @@
+meta {
+  name: Get Books with Filter
+  type: http
+  seq: 6
+}
+
+http {
+  method: GET
+  url: {{baseUrl}}/api/books?genre=Драма&author=Ульяна
+}
+
+tests {
+  const books = response.body;
+  if (Array.isArray(books)) {
+    console.log(`Found ${books.length} books matching filter`);
+  }
+}

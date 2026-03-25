@@ -1,0 +1,20 @@
+meta {
+  name: Update Book
+  type: http
+  seq: 9
+}
+
+http {
+  method: PUT
+  url: {{baseUrl}}/api/books/{{newBookId}}
+  headers {
+    Content-Type: application/json
+    Authorization: Bearer {{token}}
+  }
+  body {
+    {
+      "title": "Новое название",
+      "description": "Новое описание"
+    }
+  }
+}

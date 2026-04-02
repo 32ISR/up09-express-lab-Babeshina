@@ -1,0 +1,32 @@
+opencollection: 1.0.0
+
+info:
+  name: express_lab skebob copy
+config:
+  proxy:
+    inherit: true
+    config:
+      protocol: http
+      hostname: ""
+      port: ""
+      auth:
+        username: ""
+        password: ""
+      bypassProxy: ""
+
+request:
+  headers:
+    - name: Authorization
+      value: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlZEF0IjoiMjAyNi0wMy0yNiAwODo0MjoxMiIsImlhdCI6MTc3NDUxNjM2NCwiZXhwIjoxNzc0NjAyNzY0fQ.S1T2aEIq5f8AsUljlYzBKII_WIDlIvniVwukF0Thawo
+  variables:
+    - name: url
+      value: https://shiny-meme-v6j5q75j4pp3w4-3000.app.github.dev/
+bundled: false
+extensions:
+  bruno:
+    ignore:
+      - node_modules
+      - .git
+    presets:
+      request:
+        type: http

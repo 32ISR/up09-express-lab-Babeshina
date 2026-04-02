@@ -1,0 +1,20 @@
+info:
+  name: delete book
+  type: http
+  seq: 8
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}api/books/1"
+  body:
+    type: json
+    data: ""
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlZEF0IjoiMjAyNi0wMy0yNiAwODo0MjoxMiIsImlhdCI6MTc3NTEwNTUzNiwiZXhwIjoxNzc1MTkxOTM2fQ.CbFuo_yeZBpY8ngyXG7YmhZDmRJFoOzeaOE-w1QuP1Q
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

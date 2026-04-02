@@ -1,0 +1,27 @@
+info:
+  name: add book
+  type: http
+  seq: 7
+
+http:
+  method: POST
+  url: "{{baseUrl}}api/books"
+  body:
+    type: json
+    data: |-
+      {
+            "title": "Кружка",
+            "author": "Арсений Микрофонов",
+            "year": 2004,
+            "genre": "Фантастика",
+            "description": "кружки кружка кружок"
+          }
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlZEF0IjoiMjAyNi0wMy0yNiAwODo0MjoxMiIsImlhdCI6MTc3NTEwNTUzNiwiZXhwIjoxNzc1MTkxOTM2fQ.CbFuo_yeZBpY8ngyXG7YmhZDmRJFoOzeaOE-w1QuP1Q
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

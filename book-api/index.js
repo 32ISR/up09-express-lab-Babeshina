@@ -63,17 +63,22 @@ app.post("/api/auth/register", (req, res) => {
 });
 
 app.post("/api/auth/login", (req, res) => {
-    const { username, password } = req.body;
-    
-    const user = db.prepare("SELECT * FROM users WHERE username = ?").get(username);
-    if (!user || !bcrypt.compareSync(password, user.password)) {
-        return res.status(401).json({ error: "Неверный логин или пароль" });
+    try {
+        const { username, password } = req.body;
+        
+        const user = db.prepare("SELECT * FROM users WHERE username = ?").get(username);
+        if (!user || !bcrypt.compareSync(password, user.password)) {
+            return res.status(401).json({ error: "Неверный логин или пароль" });
+        }
+        
+        const { password: _, ...safeUser } = user;
+        const token = jwt.sign({ ...safeUser }, SECRET, { expiresIn: "24h" });
+        
+        res.json({ token, user: safeUser });
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({error: "Something went wrong"})
     }
-    
-    const { password: _, ...safeUser } = user;
-    const token = jwt.sign({ ...safeUser }, SECRET, { expiresIn: "24h" });
-    
-    res.json({ token, user: safeUser });
 });
 
 app.get("/api/auth/profile", auth, (req, res) => {

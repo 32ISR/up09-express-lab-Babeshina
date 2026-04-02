@@ -1,0 +1,21 @@
+info:
+  name: delete reviews
+  type: http
+  seq: 13
+
+http:
+  method: DELETE
+  url: "{{baseUrl}}api/reviews/:id"
+  params:
+    - name: id
+      value: "7"
+      type: path
+  auth:
+    type: bearer
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiY3JlYXRlZEF0IjoiMjAyNi0wMy0yNiAwODo0MjoxMiIsImlhdCI6MTc3NTEwNjkyOCwiZXhwIjoxNzc1MTkzMzI4fQ.DhuB5L7_CoqtvjGwHhmg7K-7tpr-ogmSicNkSLEr61k
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5

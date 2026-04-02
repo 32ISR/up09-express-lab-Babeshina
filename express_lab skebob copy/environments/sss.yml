@@ -1,0 +1,4 @@
+name: sss
+variables:
+  - name: baseUrl
+    value: https://shiny-meme-v6j5q75j4pp3w4-3000.app.github.dev/
